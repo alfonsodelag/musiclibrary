@@ -10,21 +10,25 @@
 </head>
 <body>
 <div class="container">
+
+  <!-- HEADER STARTS HERE  -->
     <head>
         <nav class="navbar bg-Darker white">
         <a class="navbar-brand text-white">Music Library</a>
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search">
-            <select name="" id="">
-                <option value="Song">Song</option>
-                <option value="Artist">Artist</option>
-                <option value="Album">Album</option>
-                <option value="Music Video">Music Video</option>
+            <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search" value="rihanna">
+            <select name="entity" id="entity">
+                <option value="musicTrack">musicTrack</option>
+                <option value="musicArtist">musicArtist</option>
+                <option value="album">album</option>
+                <option value="musicVideo">musicVideo</option>
             </select>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit">Search</button>
         </form>
         </nav>
     </head>
+    <!-- HEADER ENDS HERE -->
+
     <main>
         <br>
         <div class="container">
@@ -45,28 +49,21 @@
                     <img src="assets/images/video.png" alt="album">
                     <h4>Video</h4>
                 </div>
+    
 
             </div>
-                <div class="d-flex justify-content-between">
-                    <!-- <div class="col-3 offset-2">
-                        <input type="range" min="1" max="200">
-                    </div>
-                    <div class="col-3 offset-6">
-                        <input type="text">
-                    </div>
-                    <div class="col-3">
-                        <p>hello!</p>
-                    </div> -->
-                    <div>
-                            <input type="range" min="1" max="200">
-                    </div>
-                    <div>
-                            <input type="range" min="1" max="200">
-                    </div>
-                    <div>
-                            <input type="range" min="1" max="200">
-                    </div>
-
+            <div class="d-flex justify-content-between">
+                <select name="country" id="country">
+                    <option value="ES">Spain</option>
+                    <option value="EC">Ecuador</option>
+                </select>
+                <select name="explicit" id="explicit">Explicit Content
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <div>
+                    Limit<input id="limit" type="range" min="1" max="200">
+                </div>
             </div>
         </div>
         
@@ -81,7 +78,7 @@
                 <a href=".." target="_blank"><img src="./assets/images/facebook.png" alt="" width="30"></a>
                 <!-- Youtube -->
                 <a href=".." target="_blank"><img src="./assets/images/youtube.png" alt="" width="30"></a>
-                <!-- Whatsapp -->
+                <!-- Instagram -->
                 <a href=".." target="_blank"><img src="./assets/images/instagram.png" alt="" width="30"></a>  
             </div>
             <!-- Footer Elements -->
@@ -96,6 +93,7 @@
     </footer>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="assets/js/class.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
