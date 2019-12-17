@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music Library</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-<link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 <div class="container">
@@ -17,12 +17,10 @@
         <a class="navbar-brand text-white">Music Library</a>
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search">
-            <select name="entity" id="entity">
-                <option value="musicTrack">musicTrack</option>
-                <option value="musicArtist">musicArtist</option>
-                <option value="album">album</option>
-                <option value="musicVideo">musicVideo</option>
-            </select>
+            <div>
+                <p class="text-white">Type: musicArtist, musicVideo, album or musicTrack</p>
+                <input class="form-control mr-sm-2" type="search" id="entity" placeholder="Search" aria-label="Search">
+            </div>
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit">Search</button>
         </form>
         </nav>
@@ -58,10 +56,8 @@
                     <option value="EC">Ecuador</option>
                     <option value="US">USA</option>
                 </select>
-                Explicit Content:<select name="explicit" id="explicit">
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
+                Explicit Content. Type "Yes" or "No":<input class="form-control mr-sm-2" type="search" id="explicit" placeholder="Search" aria-label="Search">
+
                 <div>
                 Limit:<input id="limit" type="range">
                 </div>
@@ -85,7 +81,7 @@
             <!-- Footer Elements -->
           
             <!-- Copyright -->
-            <div class="bg-Darker footer-copyright text-center py-3 w-100">© 2018 Copyright:
+            <div class="bg-Darker footer-copyright text-center py-3 w-100">© 2019 Copyright:
                 <p>Alfonso De La Guardia</p>
             </div>
             <!-- Copyright -->
