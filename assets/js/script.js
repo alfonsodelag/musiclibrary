@@ -47,30 +47,6 @@ $("#submit").click(function(e){
                     <p>Country: ${country}</p>
                     <p>Price: ${price}</p>
                     </div>
-                    <div class="row">
-                    <div class="col-3">
-                    <img src="${coverImage}"></img>
-                    <p>Artist Name: ${artistName}</p>
-                    <p>Album Name: ${albumName}</p>
-                    <p>Country: ${country}</p>
-                    <p>Price: ${price}</p>
-                    </div>
-                    <div class="row">
-                    <div class="col-3">
-                    <img src="${coverImage}"></img>
-                    <p>Artist Name: ${artistName}</p>
-                    <p>Album Name: ${albumName}</p>
-                    <p>Country: ${country}</p>
-                    <p>Price: ${price}</p>
-                    </div>
-                    <div class="row">
-                    <div class="col-3">
-                    <img src="${coverImage}"></img>
-                    <p>Artist Name: ${artistName}</p>
-                    <p>Album Name: ${albumName}</p>
-                    <p>Country: ${country}</p>
-                    <p>Price: ${price}</p>
-                    </div>
                 </div>`)
             });
             console.log(response);
