@@ -17,7 +17,9 @@
 //     });
 // });
 
-    
+{/* <p>${todo.albumName}</p>
+<p>${todo.country}</p>
+<p>${todo.collectionPrice}</p>     */}
 
 
 
@@ -31,9 +33,44 @@ $("#submit").click(function(e){
     dataType: "jsonp",
         success: function(response){
             $.each(response.results, function(i, todo) {
+            var artistName= todo.artistName;
+            var albumName= todo.collectionName;
+            var country= todo.country;
+            var price= todo.collectionPrice;
+            var coverImage= todo.artworkUrl100;
                 content.append(
                     `<div class="row">
-                    <p>${todo.artistName}</p>
+                    <div class="col-3">
+                    <img src="${coverImage}"></img>
+                    <p>Artist Name: ${artistName}</p>
+                    <p>Album Name: ${albumName}</p>
+                    <p>Country: ${country}</p>
+                    <p>Price: ${price}</p>
+                    </div>
+                    <div class="row">
+                    <div class="col-3">
+                    <img src="${coverImage}"></img>
+                    <p>Artist Name: ${artistName}</p>
+                    <p>Album Name: ${albumName}</p>
+                    <p>Country: ${country}</p>
+                    <p>Price: ${price}</p>
+                    </div>
+                    <div class="row">
+                    <div class="col-3">
+                    <img src="${coverImage}"></img>
+                    <p>Artist Name: ${artistName}</p>
+                    <p>Album Name: ${albumName}</p>
+                    <p>Country: ${country}</p>
+                    <p>Price: ${price}</p>
+                    </div>
+                    <div class="row">
+                    <div class="col-3">
+                    <img src="${coverImage}"></img>
+                    <p>Artist Name: ${artistName}</p>
+                    <p>Album Name: ${albumName}</p>
+                    <p>Country: ${country}</p>
+                    <p>Price: ${price}</p>
+                    </div>
                 </div>`)
             });
             console.log(response);
