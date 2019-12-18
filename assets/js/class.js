@@ -8,21 +8,21 @@ class Search{
     }
 }
 
-// class song extends (artist, album) {
-//     constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, audioSamples, songLink){
-//         super(artistName, albumName);
-//             this.cover= cover;
-//             this.songName= songName;
-//             this.artistName= artistName;
-//             this.albumName= albumName;
-//             this.songPrice= songPrice;
-//             this.releaseDate= releaseDate;
-//             this.songLength= songLength;
-//             this.musicalGenre= musicalGenre;
-//             this.audioSamples= audioSamples;
-//             this.songLink= songLink;
-//     }
-// }
+class song extends (artist, album) {
+    constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, audioSamples, songLink){
+        super(artistName, albumName);
+            this.cover= cover;
+            this.songName= songName;
+            this.artistName= artistName;
+            this.albumName= albumName;
+            this.songPrice= songPrice;
+            this.releaseDate= releaseDate;
+            this.songLength= songLength;
+            this.musicalGenre= musicalGenre;
+            this.audioSamples= audioSamples;
+            this.songLink= songLink;
+    }
+}
 
 // class artist extends (song, album) {
 //     constructor(firstName, musicalGenre, artistLink){

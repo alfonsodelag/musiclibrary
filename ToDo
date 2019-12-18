@@ -1,1 +1,13 @@
-Figure out why Entity, Explicit Content and Limit don't work.
+Usar API de los países
+Crear sección favoritos
+Guardar info a localStorage
+
+<option>${name}</option>
+
+Usar clases para mostrar diferentes resultados en base a la clase que utilizas.
+
+Hacer que las clases interactuén entre sí
+
+Cómo interactúan la clase Search con el resto de las clases?
+
+Puedo usar los mismos nombres para las variables que coinciden entre las clases?
