@@ -18,11 +18,11 @@
         <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" id="inputSearch" placeholder="Search" aria-label="Search">
             <div>
-                <select name="entity" id="entity">
+                <select name="entity" id="entity" default="">
                     <option value="musicArtist">Artist</option>
                     <option value="musicVideo">Video</option>
-                    <option value="album">album</option>
-                    <option value="musicTrack">song</option>
+                    <option value="album">Album</option>
+                    <option selected="selected" value="musicTrack">Song</option>
                 </select>
                 <!-- <p class="text-white">Type: musicArtist, musicVideo, album or musicTrack</p>
                 <input class="form-control mr-sm-2" type="search" id="entity" placeholder="Search" aria-label="Search"> -->
@@ -59,13 +59,19 @@
             <div class="d-flex justify-content-between">
                 Country:<select name="country" id="country">
                 </select>
+
                 <p id="info-here"></p>
-                Explicit Content. Type "Yes" or "No":<input class="form-control mr-sm-2" type="search" id="explicit" placeholder="Search" aria-label="Search">
+
+                <select name="Explicit" id="explicit">
+                    <option value="Yes">Yes</option>
+                    <option selected="selected" value="No">No</option>
+                </select>
                 <div>
                 Limit: <input id="limit" type="range">
                 </div>
             </div>
         </div>
+        
         <div id="container">
             <p></p>
         </div>

@@ -8,9 +8,8 @@ class Search{
     }
 }
 
-class song extends (artist, album) {
+class song {
     constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, audioSamples, songLink){
-        super(artistName, albumName);
             this.cover= cover;
             this.songName= songName;
             this.artistName= artistName;

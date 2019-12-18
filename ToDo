@@ -11,3 +11,13 @@ Hacer que las clases interactuén entre sí
 Cómo interactúan la clase Search con el resto de las clases?
 
 Puedo usar los mismos nombres para las variables que coinciden entre las clases?
+
+Qué es lo que le indica al código que, cuando busco con la entity Song, sólo muestre resultados de la Clase Song??
+
+Cómo hago para que los resultados que se desplegan varíen dependiendo de las clases usadas?
+
+1. Crear un template con datos ficticios
+2. Luego convertirlo en dinamico
+
+Clean para las nuevas búsquedas
+
