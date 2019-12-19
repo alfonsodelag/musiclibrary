@@ -21,3 +21,15 @@ Cómo hago para que los resultados que se desplegan varíen dependiendo de las c
 
 Clean para las nuevas búsquedas
 
+
+
+
+Recorrer el array list y para cada valor, hacer un append del HTML.
+
+SQL
+jQUERY
+js y callbacks
+poo
+VUE
+WEBPACK
+
