@@ -1,6 +1,6 @@
 
 class Video {
-    constructor(cover, songName, artistName, songPrice, releaseDate, songLength, musicalGenre, videoSample, videoLink){
+    constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, videoSample, videoLink){
         this.cover= cover;
         this.songName= songName;
         this.artistName= artistName;
@@ -9,8 +9,8 @@ class Video {
         this.releaseDate= releaseDate;
         this.songLength= songLength;
         this.musicalGenre= musicalGenre;
-        this.audioSamples= audioSamples;
-        this.songLink= songLink;
+        this.videoSample= videoSample;
+        this.videoLink= videoLink;
     }
     getCover(){
         return this.cover;

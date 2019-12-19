@@ -66,10 +66,15 @@ $("#submit").click(function(e){
             switch(entity) {
             
                 case "musicTrack":
+                    var musicTrackList= [];
                     $.each(response.results, function(i,todo){
-                        
+                       var musicTrack= new Song(todo.artworkUrl100, todo.trackName, todo.artistName, todo.collectionName, todo.trackPrice, todo.releaseDate, todo.trackTimeMillis, todo.primaryGenreName, todo.previewUrl, todo.trackViewUrl)
+                        musicTrackList.push(musicTrack);
                     });
+addMusicTrackToHTML(musicTrackList);
                 break;
+
+                
                 case "musicArtist":
                     var musicArtistList= [];
 
@@ -79,7 +84,6 @@ $("#submit").click(function(e){
                     })
 
 addArtistToHTML(musicArtistList);
-               
                 break;
 
                 case "album":
@@ -90,13 +94,16 @@ addArtistToHTML(musicArtistList);
                     })
 
 addAlbumToHTML(musicAlbumList);
-
                 break;
+
                 case "musicVideo":
-                    
+                var musicVideoList= [];
                     $.each(response.results, function(i,todo){
-                       
-                    })
+                       var musicVideo= new Video(todo.artworkUrl100, todo.trackName, todo.artistName, todo.collectionName, todo.trackPrice, todo.releaseDate, todo.trackTimeMillis, todo.primaryGenreName, todo.previewUrl, todo.trackViewUrl)
+                        musicVideoList.push(musicVideo);
+                    });
+
+addVideoToHTML(musicVideoList);
                 break;
 
                 default: 
@@ -124,6 +131,25 @@ var countries=  $('#country');
              }
         });
 
+    function addMusicTrackToHTML(list){
+        var rowResults= $("#rowResults");
+        for (let i = 0; i < list.length; i++) {
+            rowResults.append(
+                `<div class="col-3">
+                    <img src="${list[i].cover}"></img>
+                    <p>Song Name: ${list[i].songName}</p>
+                    <p>Artist Name: ${list[i].artistName}</p>
+                    <p>Album Name: ${list[i].collectionName}</p>
+                    <p>Country: ${list[i].country}</p>
+                    <p>Price: ${list[i].trackPrice}</p>
+                    <p>Release Date: ${list[i].releaseDate}</p>
+                    <p>Song Length: ${list[i].songLength}</p>
+                    <p>Genre: ${list[i].musicalGenre}</p>
+                    <p>Audio Sample: ${list[i].audioSamples}</p>
+                    <p>Itunes Song Link: ${list[i].songLink}</p>
+                </div>`)
+        }
+    }
 
     function addArtistToHTML(list){
         var rowResults= $("#rowResults");
@@ -150,9 +176,27 @@ var countries=  $('#country');
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
                 </div>`)
-
-        
         }
     };
+
+    function addVideoToHTML(list){
+        var rowResults= $("#rowResults");
+        for (let i = 0; i < list.length; i++) {
+            console.log(list[i].cover);
+            rowResults.append(
+                `<div class="col-3">
+                    <img src="${list[i].cover}"></img>
+                    <p>Song Name: ${list[i].songName}</p>
+                    <p>Artist Name: ${list[i].artistName}</p>
+                    <p>Album Name: ${list[i].albumName}</p>
+                    <p>Song Price: ${list[i].songPrice}</p>
+                    <p>Release Date: ${list[i].releaseDate} </p>
+                    <p>Song Length: ${list[i].songLength}</p>
+                    <p>Genre: ${list[i].musicalGenre}</p>
+                    <p>Video Sample: ${list[i].videoSample}</p>
+                    <p>Itunes Video Link: ${list[i].videoLink}</p>
+                </div>`)
+        }
+    }
 
 
