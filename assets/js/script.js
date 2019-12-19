@@ -109,7 +109,7 @@ var countries=  $('#country');
                     <audio controls>
                     <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
-                    <p>Itunes Song Link: ${list[i].songLink}</p>
+                    <p class="songlink">Itunes Song Link: ${list[i].songLink}</p>
                     <button class="saveToFavorites" type="button">Save to Favorites</button>
                     <br>
                     <br>
