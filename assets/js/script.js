@@ -143,9 +143,11 @@ var countries=  $('#country');
                     <p>Country: ${list[i].country}</p>
                     <p>Price: ${list[i].trackPrice}</p>
                     <p>Release Date: ${list[i].releaseDate}</p>
-                    <p>Song Length: ${list[i].songLength}</p>
+                    <p>Song Length: ${Math.floor((list[i].songLength)/60000)} Minutes</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <p>Audio Sample: ${list[i].audioSamples}</p>
+                    <audio> 
+                    <source src="${list[i].audioSamples}" type="audio/mpeg"></source>
+                    </audio>
                     <p>Itunes Song Link: ${list[i].songLink}</p>
                 </div>`)
         }
@@ -191,12 +193,13 @@ var countries=  $('#country');
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Song Price: ${list[i].songPrice}</p>
                     <p>Release Date: ${list[i].releaseDate} </p>
-                    <p>Song Length: ${list[i].songLength}</p>
+                    <p>Song Length: ${Math.floor((list[i].songLength)/60000)} Minutes</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <p>Video Sample: ${list[i].videoSample}</p>
+                    <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
                 </div>`)
         }
     }
+
 
 

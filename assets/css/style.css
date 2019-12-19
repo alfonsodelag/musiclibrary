@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid black;
-}
+} */
 
 .navbar {
     background-color: black;
@@ -11,5 +11,9 @@
 }
 
 .coverimage {
+    width: 100%;
+}
+
+iframe{
     width: 100%;
 }
