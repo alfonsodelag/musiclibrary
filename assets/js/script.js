@@ -94,7 +94,9 @@ var countries=  $('#country');
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
             rowResults.append(
-                `<div class="col-3">
+                `<br>
+                <br>
+                <div class="col-4">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -108,6 +110,9 @@ var countries=  $('#country');
                     <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
                     <p>Itunes Song Link: ${list[i].songLink}</p>
+                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <br>
+                    <br>
                 </div>`)
         }
     }
@@ -116,10 +121,15 @@ var countries=  $('#country');
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
             rowResults.append(
-                `<div class="col-3">
+                `<br>
+                <br>
+                <div class="col-4">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <p>Artist Link: ${list[i].artistLink}</p>
+                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <br>
+                    <br>
                 </div>`)
         }
     };
@@ -128,7 +138,9 @@ var countries=  $('#country');
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
             rowResults.append(
-                `<div class="col-3">
+                `<br>
+                <br>
+                <div class="col-4">
                     <img src="${list[i].cover}"></img>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -136,6 +148,9 @@ var countries=  $('#country');
                     <p>Number of Songs: ${list[i].songNumber}</p>
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
+                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <br>
+                    <br>
                 </div>`)
         }
     };
@@ -145,7 +160,9 @@ var countries=  $('#country');
         for (let i = 0; i < list.length; i++) {
             console.log(list[i].cover);
             rowResults.append(
-                `<div class="col-3">
+                `<br>
+                <br>
+                <div class="col-4">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -156,27 +173,13 @@ var countries=  $('#country');
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
+                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <br>
+                    <br>
                 </div>`)
         }
     }
 
 
-    function playSong(){
-        IDthis = this.getAttribute('marcador');
-        IDSelected = document.getElementById('id' + IDthis);
-        IDSelected.play();
-    }
-    // eslint-disable-next-line no-inner-declarations
-    function pauseSong(){
-        IDthis = this.getAttribute('marcador');
-        IDSelected = document.getElementById('id' + IDthis);
-        IDSelected.pause();
-    }
-    // eslint-disable-next-line no-inner-declarations
-    function stopSong(){
-        IDthis = this.getAttribute('marcador');
-        IDSelected = document.getElementById('id' + IDthis);
-        IDSelected.load();
-    }
 
 
