@@ -1,38 +1,3 @@
-
-
-
-// // $("#submit").click(function(e){
-// //     var finder = new Search($("#entity").val(), $("#inputSearch").val(), $("#country").val(), $("#explicit").val(), $("#limit").val());
-// //     e.preventDefault();
-// //     $.ajax({
-// //     url: "https://itunes.apple.com/search?" + "entity=" + finder.entity + "&" + "term=" + finder.term + "&" + "country=" + finder.country + "&" + "explicit=" + finder.explicit + "&" + "limit=" + finder.limit,        
-// //     dataType: "jsonp",
-// //         success: function(response){
-// //             $.each(response.results, function(i, todo) {
-//             var artistName= todo.artistName;
-//             var albumName= todo.collectionName;
-//             var country= todo.country;
-//             var price= todo.collectionPrice;
-//             var coverImage= todo.artworkUrl100;
-//                 content.append(
-//                     `<div class="row">
-//                     <div class="col-3">
-//                     <img src="${coverImage}"></img>
-//                     <p>Artist Name: ${artistName}</p>
-//                     <p>Album Name: ${albumName}</p>
-//                     <p>Country: ${country}</p>
-//                     <p>Price: ${price}</p>
-//                     </div>
-//                 </div>`)
-//             });
-//             console.log(response);
-//         },
-//         fail: function(errorThrown){
-//         console.log(errorThrown);
-//         }
-// });
-// });
-
 var content = $('#container');
 
 
@@ -43,12 +8,6 @@ $("#submit").click(function(e){
     var country= $("#country").val();
     var explicit= $("#explicit").val();
     var limit= $("#limit").val();
-    console.log("entity: "+ entity);
-    console.log("term: "+ term);
-    console.log("country: "+ country);
-    console.log("explicit: "+ explicit);
-    console.log("limit: "+ limit);
-
     content.html("");
     
     
@@ -71,7 +30,7 @@ $("#submit").click(function(e){
                        var musicTrack= new Song(todo.artworkUrl100, todo.trackName, todo.artistName, todo.collectionName, todo.trackPrice, todo.releaseDate, todo.trackTimeMillis, todo.primaryGenreName, todo.previewUrl, todo.trackViewUrl)
                         musicTrackList.push(musicTrack);
                     });
-addMusicTrackToHTML(musicTrackList);
+        addMusicTrackToHTML(musicTrackList);
                 break;
 
                 
@@ -83,7 +42,7 @@ addMusicTrackToHTML(musicTrackList);
                         musicArtistList.push(musicArtist);
                     })
 
-addArtistToHTML(musicArtistList);
+        addArtistToHTML(musicArtistList);
                 break;
 
                 case "album":
@@ -93,7 +52,7 @@ addArtistToHTML(musicArtistList);
                         musicAlbumList.push(musicAlbum);
                     })
 
-addAlbumToHTML(musicAlbumList);
+        addAlbumToHTML(musicAlbumList);
                 break;
 
                 case "musicVideo":
@@ -103,12 +62,12 @@ addAlbumToHTML(musicAlbumList);
                         musicVideoList.push(musicVideo);
                     });
 
-addVideoToHTML(musicVideoList);
+        addVideoToHTML(musicVideoList);
                 break;
 
                 default: 
                 break;
-            }
+}
             console.log(response);
         },
         fail: function(errorThrown){
@@ -145,8 +104,8 @@ var countries=  $('#country');
                     <p>Release Date: ${list[i].releaseDate}</p>
                     <p>Song Length: ${Math.floor((list[i].songLength)/60000)} Minutes</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <audio> 
-                    <source src="${list[i].audioSamples}" type="audio/mpeg"></source>
+                    <audio controls>
+                    <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
                     <p>Itunes Song Link: ${list[i].songLink}</p>
                 </div>`)
@@ -201,5 +160,23 @@ var countries=  $('#country');
         }
     }
 
+
+    function playSong(){
+        IDthis = this.getAttribute('marcador');
+        IDSelected = document.getElementById('id' + IDthis);
+        IDSelected.play();
+    }
+    // eslint-disable-next-line no-inner-declarations
+    function pauseSong(){
+        IDthis = this.getAttribute('marcador');
+        IDSelected = document.getElementById('id' + IDthis);
+        IDSelected.pause();
+    }
+    // eslint-disable-next-line no-inner-declarations
+    function stopSong(){
+        IDthis = this.getAttribute('marcador');
+        IDSelected = document.getElementById('id' + IDthis);
+        IDSelected.load();
+    }
 
 
