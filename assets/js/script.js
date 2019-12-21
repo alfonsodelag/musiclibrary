@@ -1,7 +1,10 @@
+//This is where we are pasting our content
 var content = $('#container');
+
 
 $("#submit").click(function(e){
     var uri = "https://itunes.apple.com/search?";
+    //variables that store search parameters inputs
     var entity = $("#entity").val();
     var term= $("#inputSearch").val();
     var country= $("#country").val();
@@ -9,43 +12,49 @@ $("#submit").click(function(e){
     var limit= $("#limit").val();
     content.html("");
     
-    
+    //Using finder class to search an entity with the parameters
     var finder = new Search(entity, term, country, explicit, limit);
     var finalUrl= uri + "entity=" + finder.entity + "&" + "term=" + finder.term + "&" + "country=" + finder.country + "&" + "explicit=" + finder.explicit + "&" + "limit=" + finder.limit;        
     
     console.log(finalUrl);
     e.preventDefault();
+
+    //Using ajax to get information from the API
     $.ajax({
     url: finalUrl,        
     dataType: "jsonp",
         success: function(response){
             content.html("<div id='rowResults' class='row'></div>");
             var rowResults= $("#rowResults");
-            switch(entity) {
             
+            //Switching between "cases" based on entity parameter
+            switch(entity) {
                 case "musicTrack":
                     var musicTrackList= [];
+                    //Using OOP to store Data received from the Ajax petition
                     $.each(response.results, function(i,todo){
                        var musicTrack= new Song(todo.artworkUrl100, todo.trackName, todo.artistName, todo.collectionName, todo.trackPrice, todo.releaseDate, todo.trackTimeMillis, todo.primaryGenreName, todo.previewUrl, todo.trackViewUrl)
                         musicTrackList.push(musicTrack);
                     });
         addMusicTrackToHTML(musicTrackList);
+
                 break;
 
-                
                 case "musicArtist":
                     var musicArtistList= [];
-
+                    //Using OOP to store Data received from the Ajax petition
                     $.each(response.results, function(i, todo){
                        var musicArtist = new Artist(todo.artistName, todo.primaryGenreName, todo.artistLinkUrl);
                         musicArtistList.push(musicArtist);
                     })
 
         addArtistToHTML(musicArtistList);
+
                 break;
 
                 case "album":
                     var musicAlbumList= [];
+                    //Using OOP to store Data received from the Ajax petition
                     $.each(response.results, function(i, todo) {
                         var musicAlbum= new Album(todo.artworkUrl100, todo.collectionName, todo.artistName, todo.collectionPrice, todo.trackCount, todo.releaseDate, todo.primaryGenreName)
                         musicAlbumList.push(musicAlbum);
@@ -56,6 +65,7 @@ $("#submit").click(function(e){
 
                 case "musicVideo":
                 var musicVideoList= [];
+                    //Using OOP to store Data received from the Ajax petition
                     $.each(response.results, function(i,todo){
                        var musicVideo= new Video(todo.artworkUrl100, todo.trackName, todo.artistName, todo.collectionName, todo.trackPrice, todo.releaseDate, todo.trackTimeMillis, todo.primaryGenreName, todo.previewUrl, todo.trackViewUrl)
                         musicVideoList.push(musicVideo);
@@ -76,8 +86,10 @@ $("#submit").click(function(e){
 });
 
 
-var countries=  $('#country');
-var pasteFavorites= $("#favorites");
+var countries=  $('#country');  //variable for when using Countries API
+var pasteFavorites= $("#favorites"); //Variable used for storing favorites chosen
+
+//Using Ajax to get data response results from the countries API
     $.ajax({
         url: "https://www.liferay.com/api/jsonws/country/get-countries/",
         dataType: "json",
@@ -94,10 +106,12 @@ var pasteFavorites= $("#favorites");
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
             var songId= "saveSongs"+i;
+
+            //Using .append and the for loop to paste all the contents requested dynamically
             rowResults.append(
                 `<br>
                 <br>
-                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders center">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -116,16 +130,25 @@ var pasteFavorites= $("#favorites");
                     <br>
                 </div>`)
 
+            //Saving to Local Storage
                 $("#"+songId).click(function(){
                     var songList= [];
                     songList.push(list[i].songName);
                     localStorage.setItem("Song: "+i, songList);
                     var getFavoriteSong= localStorage.getItem("Song: "+i);
+                    var removeList= [];
+                    removeList.push(getFavoriteSong);
+
                     pasteFavorites.append(
                         `<div >
-                        <p>${getFavoriteSong}</p>
+                        <p class="selectedfavorite">${getFavoriteSong}</p>
+                        <button class="blue remove">Remove</button>
                         </div>`
                     )
+                    //Removing favorites
+                    $(".remove").click(function(){
+                        $(".selectedfavorite").empty();
+                    })
                 });
         }
         
@@ -135,31 +158,32 @@ var pasteFavorites= $("#favorites");
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
             var artistId= "saveArtists"+i;
-            console.log("artist Id: " + artistId);
+        //Using .append and the for loop to paste all the contents requested dynamically
             rowResults.append(
                 `<br>
                 <br>
-                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders center">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <div class="artistLink>
                     <p>Artist Link: ${list[i].artistLink}</p>
-                    </div>
                     <button class="${list[i].artistName} blue" id=${artistId} type="button">Save to Favorites</button>
-                    <br>
-                    <br>
                 </div>`)
+            //Saving to Local Storage
                 $("#"+artistId).click(function(){
                     var artistList= []
                     artistList.push(list[i].artistName);
                     localStorage.setItem("Artist: "+i, artistList);
                     var getFavoriteArtist= localStorage.getItem("Artist: "+i);
-                    console.log("get favorite artist: " + getFavoriteArtist);
                     pasteFavorites.append(
                         `<div >
-                        <p>${getFavoriteArtist}</p>
+                        <p class="selectedfavorite">${getFavoriteArtist}</p>
+                        <button class="blue remove">Remove</button>
                         </div>`
                     )
+                    //Removing favorites
+                    $(".remove").click(function(){
+                        $(".selectedfavorite").empty();
+                    })
                 });
         }
     };
@@ -168,11 +192,11 @@ var pasteFavorites= $("#favorites");
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
             var albumId= "saveAlbums"+i;
-
+            //Using .append and the for loop to paste all the contents requested dynamically
             rowResults.append(
                 `<br>
                 <br>
-                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders center">
                     <img src="${list[i].cover}"></img>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -181,23 +205,24 @@ var pasteFavorites= $("#favorites");
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
                     <button class="${list[i].albumName} blue" id="${albumId}" type="button">Save to Favorites</button>
-                    <br>
-                    <br>
                 </div>`)
              
-              
+            //Saving to Local Storage
             $("#"+albumId).click(function(){
                 var albumList= [];
                 albumList.push(list[i].albumName)
                 localStorage.setItem("Albums: "+i, albumList)
                 var getFavoriteAlbums= localStorage.getItem("Albums: "+i)
-                console.log(getFavoriteAlbums);
                 pasteFavorites.append(
-                    `<div >
-                    <p>${getFavoriteAlbums}</p>
-                    <button>Remove from favorites<button>
+                    `<div>
+                    <p class="selectedfavorite">${getFavoriteAlbums}</p>
+                    <button class="blue remove"> Remove </button>                    
                     </div>`
                 )
+                //Removing favorites
+                $(".remove").click(function(){
+                    $(".selectedfavorite").empty();
+                })
             });
         }
     };
@@ -206,10 +231,12 @@ var pasteFavorites= $("#favorites");
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
             var btnId = "saveToFavorites"+i;
+            var videoRemoveId= "removeFavorites"+i;
+            //Using .append and the for loop to paste all the contents requested dynamically
             rowResults.append(
                 `<br>
                 <br>
-                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders center">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -221,27 +248,25 @@ var pasteFavorites= $("#favorites");
                     <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
                     <button class="${list[i].artistName} blue" id="${btnId}" type="button">Save to Favorites</button>
-                    <br>
-                    <br>
                 </div>`);
 
-                $("#"+btnId).click(function(){
-                    
-                    var videoartistList= [];
-                    videoartistList.push(list[i].artistName)
-                    // var num = $("#artistName").html();
-                    localStorage.setItem("Favorites: "+i, videoartistList);    
+                //Saving to Local Storage
+                $("#"+btnId).click(function(){ 
+                var videoartistList= [];
+                videoartistList.push(list[i].artistName)
+                localStorage.setItem("Favorites: "+i, videoartistList);    
                 var getFavoriteVideoArtist= localStorage.getItem("Favorites: "+i);
-
                 pasteFavorites.append(
-                    `<div >
-                    <p>${getFavoriteVideoArtist}</p>
+                    `<div>
+                    <p class="selectedfavorite">${getFavoriteVideoArtist}</p>
+                    <button class="blue remove">Remove</button>
                     </div>`
                 )
+                //Removing favorites
+                  $(".remove").click(function(){
+                    $(".selectedfavorite").empty();
+                })
             });
         }
     }
-
-
-
 
