@@ -106,7 +106,7 @@ var countries=  $('#country');
                     <p>Release Date: ${list[i].releaseDate}</p>
                     <p>Song Length: ${Math.floor((list[i].songLength)/60000)} Minutes</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <audio controls>
+                    <audio controls class="audiocontrols">
                     <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
                     <p class="songlink">Itunes Song Link: ${list[i].songLink}</p>
@@ -126,7 +126,7 @@ var countries=  $('#country');
                 <div class="col-4 borders">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
-                    <div>
+                    <div class="artistLink>
                     <p>Artist Link: ${list[i].artistLink}</p>
                     </div>
                     <button class="saveToFavorites" type="button">Save to Favorites</button>
