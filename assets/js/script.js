@@ -1,6 +1,5 @@
 var content = $('#container');
 
-
 $("#submit").click(function(e){
     var uri = "https://itunes.apple.com/search?";
     var entity = $("#entity").val();
@@ -98,7 +97,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4 borders">
+                <div class="col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -112,7 +111,7 @@ var pasteFavorites= $("#favorites");
                     <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
                     <p class="songlink">Itunes Song Link: ${list[i].songLink}</p>
-                    <button class="${list[i].songName}"  id="${songId}" type="button">Save to Favorites</button>
+                    <button class="${list[i].songName} blue"  id="${songId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
@@ -140,13 +139,13 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4 borders">
+                <div class="col-lg-4 col-sm-6 borders">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <div class="artistLink>
                     <p>Artist Link: ${list[i].artistLink}</p>
                     </div>
-                    <button class="${list[i].artistName}" id=${artistId} type="button">Save to Favorites</button>
+                    <button class="${list[i].artistName} blue" id=${artistId} type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
@@ -173,7 +172,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4 borders">
+                <div class="col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -181,7 +180,7 @@ var pasteFavorites= $("#favorites");
                     <p>Number of Songs: ${list[i].songNumber}</p>
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
-                    <button name="${list[i].albumName}" id="${albumId}" type="button">Save to Favorites</button>
+                    <button name="${list[i].albumName} blue" id="${albumId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
@@ -209,7 +208,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4 borders">
+                <div class="col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -220,7 +219,7 @@ var pasteFavorites= $("#favorites");
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
-                    <button name="${list[i].artistName}" id="${btnId}" type="button">Save to Favorites</button>
+                    <button name="${list[i].artistName} blue" id="${btnId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`);
