@@ -97,7 +97,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -139,7 +139,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <div class="artistLink>
@@ -172,7 +172,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -180,7 +180,7 @@ var pasteFavorites= $("#favorites");
                     <p>Number of Songs: ${list[i].songNumber}</p>
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
-                    <button name="${list[i].albumName} blue" id="${albumId}" type="button">Save to Favorites</button>
+                    <button class="${list[i].albumName} blue" id="${albumId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
@@ -195,6 +195,7 @@ var pasteFavorites= $("#favorites");
                 pasteFavorites.append(
                     `<div >
                     <p>${getFavoriteAlbums}</p>
+                    <button>Remove from favorites<button>
                     </div>`
                 )
             });
@@ -208,7 +209,7 @@ var pasteFavorites= $("#favorites");
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-lg-4 col-sm-6 borders">
+                <div class="offset-lg-2 col-lg-4 col-sm-6 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -219,7 +220,7 @@ var pasteFavorites= $("#favorites");
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
-                    <button name="${list[i].artistName} blue" id="${btnId}" type="button">Save to Favorites</button>
+                    <button class="${list[i].artistName} blue" id="${btnId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`);
