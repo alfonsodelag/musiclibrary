@@ -21,3 +21,16 @@ iframe{
 .songlink{
     width: 100%;
 }
+
+.borders{
+    border: 1px solid black;
+}
+
+#container{
+    width: 80%;
+}
+
+aside{
+    width: 15%;
+    margin-left: auto;
+}

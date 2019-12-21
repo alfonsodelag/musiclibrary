@@ -88,7 +88,7 @@ var countries=  $('#country');
                     );
                 }
              }
-        });
+    });
 
     function addMusicTrackToHTML(list){
         var rowResults= $("#rowResults");
@@ -96,7 +96,7 @@ var countries=  $('#country');
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4">
+                <div class="col-4 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -123,10 +123,12 @@ var countries=  $('#country');
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4">
+                <div class="col-4 borders">
                     <p>Artist Name: ${list[i].artistName}</p>
                     <p>Genre: ${list[i].musicalGenre}</p>
+                    <div>
                     <p>Artist Link: ${list[i].artistLink}</p>
+                    </div>
                     <button class="saveToFavorites" type="button">Save to Favorites</button>
                     <br>
                     <br>
@@ -140,7 +142,7 @@ var countries=  $('#country');
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4">
+                <div class="col-4 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Artist Name: ${list[i].artistName}</p>
@@ -159,13 +161,14 @@ var countries=  $('#country');
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
             console.log(list[i].cover);
+            var btnId = "saveToFavorites"+i;
             rowResults.append(
                 `<br>
                 <br>
-                <div class="col-4">
+                <div class="col-4 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
-                    <p>Artist Name: ${list[i].artistName}</p>
+                    <p id="artistName">Artist Name: ${list[i].artistName}</p>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Song Price: ${list[i].songPrice}</p>
                     <p>Release Date: ${list[i].releaseDate} </p>
@@ -173,11 +176,37 @@ var countries=  $('#country');
                     <p>Genre: ${list[i].musicalGenre}</p>
                     <iframe src="${list[i].videoSample}"></iframe>
                     <p>Itunes Video Link: ${list[i].videoLink}</p>
-                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <button name="${list[i].artistName}" id="${btnId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
-                </div>`)
+                </div>`);
+
+                $("#"+btnId).click(function(){
+                    var artistList= [];
+                    artistList.push(list[i].artistName)
+                    var num = $("#artistName").html();
+                    localStorage.setItem("Favorites: "+i, artistList);
+                // var artistList = [];
+                // artistList.push(favorites);
+                // localStorage.setItem("Favorites: ", ${list[i].artistName});  
+                //     // Obtener el name del botón y guardarlo en localStorage una vez hecho esto
+                //     //luego crear otra funcion que despliegue la informacion guardada en LocalStorage, debe ser una funcion aparte
+                var pasteFavorites= $("#favorites");
+                var getFavorite= localStorage.getItem("Favorites: "+i)
+                
+                pasteFavorites.append(
+                    `<div >
+                    <p>${getFavorite}</p>
+                    </div>`
+                )
+            });
+
+
+
+           
         }
+     
+        
     }
 
 
