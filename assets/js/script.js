@@ -78,6 +78,7 @@ $("#submit").click(function(e){
 
 
 var countries=  $('#country');
+var pasteFavorites= $("#favorites");
     $.ajax({
         url: "https://www.liferay.com/api/jsonws/country/get-countries/",
         dataType: "json",
@@ -93,6 +94,7 @@ var countries=  $('#country');
     function addMusicTrackToHTML(list){
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
+            var songId= "saveSongs"+i;
             rowResults.append(
                 `<br>
                 <br>
@@ -110,16 +112,31 @@ var countries=  $('#country');
                     <source src="${list[i].audioSamples}" type="audio/mpeg">
                     </audio>
                     <p class="songlink">Itunes Song Link: ${list[i].songLink}</p>
-                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <button class="${list[i].songName}"  id="${songId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
+
+                $("#"+songId).click(function(){
+                    var songList= [];
+                    songList.push(list[i].songName);
+                    localStorage.setItem("Song: "+i, songList);
+                    var getFavoriteSong= localStorage.getItem("Song: "+i);
+                    pasteFavorites.append(
+                        `<div >
+                        <p>${getFavoriteSong}</p>
+                        </div>`
+                    )
+                });
         }
-    }
+        
+    };
 
     function addArtistToHTML(list){
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
+            var artistId= "saveArtists"+i;
+            console.log("artist Id: " + artistId);
             rowResults.append(
                 `<br>
                 <br>
@@ -129,16 +146,30 @@ var countries=  $('#country');
                     <div class="artistLink>
                     <p>Artist Link: ${list[i].artistLink}</p>
                     </div>
-                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <button class="${list[i].artistName}" id=${artistId} type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
+                $("#"+artistId).click(function(){
+                    var artistList= []
+                    artistList.push(list[i].artistName);
+                    localStorage.setItem("Artist: "+i, artistList);
+                    var getFavoriteArtist= localStorage.getItem("Artist: "+i);
+                    console.log("get favorite artist: " + getFavoriteArtist);
+                    pasteFavorites.append(
+                        `<div >
+                        <p>${getFavoriteArtist}</p>
+                        </div>`
+                    )
+                });
         }
     };
 
     function addAlbumToHTML(list){
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) { 
+            var albumId= "saveAlbums"+i;
+
             rowResults.append(
                 `<br>
                 <br>
@@ -150,17 +181,30 @@ var countries=  $('#country');
                     <p>Number of Songs: ${list[i].songNumber}</p>
                     <p>Release Date: ${list[i].songLength}</p>
                     <p>Musical Genre: ${list[i].musicalGenre}</p>
-                    <button class="saveToFavorites" type="button">Save to Favorites</button>
+                    <button name="${list[i].albumName}" id="${albumId}" type="button">Save to Favorites</button>
                     <br>
                     <br>
                 </div>`)
+             
+              
+            $("#"+albumId).click(function(){
+                var albumList= [];
+                albumList.push(list[i].albumName)
+                localStorage.setItem("Albums: "+i, albumList)
+                var getFavoriteAlbums= localStorage.getItem("Albums: "+i)
+                console.log(getFavoriteAlbums);
+                pasteFavorites.append(
+                    `<div >
+                    <p>${getFavoriteAlbums}</p>
+                    </div>`
+                )
+            });
         }
     };
 
     function addVideoToHTML(list){
         var rowResults= $("#rowResults");
         for (let i = 0; i < list.length; i++) {
-            console.log(list[i].cover);
             var btnId = "saveToFavorites"+i;
             rowResults.append(
                 `<br>
@@ -168,7 +212,7 @@ var countries=  $('#country');
                 <div class="col-4 borders">
                     <img src="${list[i].cover}"></img>
                     <p>Song Name: ${list[i].songName}</p>
-                    <p id="artistName">Artist Name: ${list[i].artistName}</p>
+                    <p>Artist Name: ${list[i].artistName}</p>
                     <p>Album Name: ${list[i].albumName}</p>
                     <p>Song Price: ${list[i].songPrice}</p>
                     <p>Release Date: ${list[i].releaseDate} </p>
@@ -182,31 +226,20 @@ var countries=  $('#country');
                 </div>`);
 
                 $("#"+btnId).click(function(){
-                    var artistList= [];
-                    artistList.push(list[i].artistName)
-                    var num = $("#artistName").html();
-                    localStorage.setItem("Favorites: "+i, artistList);
-                // var artistList = [];
-                // artistList.push(favorites);
-                // localStorage.setItem("Favorites: ", ${list[i].artistName});  
-                //     // Obtener el name del botón y guardarlo en localStorage una vez hecho esto
-                //     //luego crear otra funcion que despliegue la informacion guardada en LocalStorage, debe ser una funcion aparte
-                var pasteFavorites= $("#favorites");
-                var getFavorite= localStorage.getItem("Favorites: "+i)
-                
+                    
+                    var videoartistList= [];
+                    videoartistList.push(list[i].artistName)
+                    // var num = $("#artistName").html();
+                    localStorage.setItem("Favorites: "+i, videoartistList);    
+                var getFavoriteVideoArtist= localStorage.getItem("Favorites: "+i);
+
                 pasteFavorites.append(
                     `<div >
-                    <p>${getFavorite}</p>
+                    <p>${getFavoriteVideoArtist}</p>
                     </div>`
                 )
             });
-
-
-
-           
         }
-     
-        
     }
 
 
