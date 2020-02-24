@@ -19,12 +19,12 @@
   "homepage": "https://github.com/alfonsodelag/musiclibrary#readme",
   "devDependencies": {
     "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
+    "@babel/core": "^7.8.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-env": "^7.8.4",
     "babel-install": "2.1.0",
     "babel-loader": "^8.0.6",
-    "webpack": "^4.41.4",
+    "webpack": "^4.41.6",
     "webpack-cli": "^3.3.10"
   }
 }
