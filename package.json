@@ -4,7 +4,7 @@
   "description": "Music library is a project where users will be able to get information of their favorite music using the Itunes Search API",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   "homepage": "https://github.com/alfonsodelag/musiclibrary#readme",
   "devDependencies": {
     "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "babel-install": "2.1.0",
-    "webpack": "^4.41.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"
   }
 }

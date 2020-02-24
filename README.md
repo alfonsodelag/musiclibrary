@@ -3,6 +3,7 @@ Music library is a project where users will be able to get information of their 
 
 ##Installing/Use
 To use the project, you need to access the index.html file and search for your favorite music to obtain information. 
+Change the name of the country to Spain, or United States for example, to see results from those countries.
 
 ##Technologies Used
 -Ajax
@@ -11,8 +12,6 @@ To use the project, you need to access the index.html file and search for your f
 
 ##Contributions
 Pull requests are welcome for the project. Please notify me 
-
-##Where to access the project
 
 
 ##Author
