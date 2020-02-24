@@ -152,7 +152,7 @@ var pasteFavorites= $("#favorites"); //Variable used for storing favorites chose
                 });
         }
         
-    };
+    }
 
     function addArtistToHTML(list){
         var rowResults= $("#rowResults");
@@ -186,7 +186,7 @@ var pasteFavorites= $("#favorites"); //Variable used for storing favorites chose
                     })
                 });
         }
-    };
+    }
 
     function addAlbumToHTML(list){
         var rowResults= $("#rowResults");
@@ -225,7 +225,7 @@ var pasteFavorites= $("#favorites"); //Variable used for storing favorites chose
                 })
             });
         }
-    };
+    }
 
     function addVideoToHTML(list){
         var rowResults= $("#rowResults");
