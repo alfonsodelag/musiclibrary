@@ -33,7 +33,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     'style-loader',
-                    { loader: "css-loader", options: { importLoaders: 1 } },
+                    'css-loader',
                     'sass-loader'
                 ]
             }
@@ -42,7 +42,7 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
         }),
         new HtmlWebPackPlugin({
             template: "./src/index.html",

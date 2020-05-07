@@ -1,81 +1,38 @@
 Html Webpack Plugin:
 <pre>
-  Error: Child compilation failed:
-  Module not found: Error: Can't resolve './assets/css/style.css' in 'C:\Users\alfon\Desktop\ASSEMBLER\musiclibrary\src':
-  Error: Can't resolve './assets/css/style.css' in 'C:\Users\alfon\Desktop\ASSEMBLER\musiclibrary\src'
+  Error: C:\Users\alfon\Desktop\ASSEMBLER\musiclibrary/node_modules/jquery/dist/jquery.js?:31
+  throw new Error( "jQuery requires a window with a document" );
+  ^
+  Error: jQuery requires a window with a document
   
-  - child-compiler.js:122 
-    [musiclibrary]/[html-webpack-plugin]/lib/child-compiler.js:122:18
+  - jquery.js?:31 module.exports
+    [.]/[jquery]/dist/jquery.js?:31:12
   
-  - Compiler.js:343 
-    [musiclibrary]/[webpack]/lib/Compiler.js:343:11
+  - script.js?:2 Object.eval
+    C:\Users\alfon\Desktop\ASSEMBLER\musiclibrary/src/assets/js/script.js?:2:15
   
-  - Compiler.js:681 
-    [musiclibrary]/[webpack]/lib/Compiler.js:681:15
+  - script.js?:207 eval
+    C:\Users\alfon\Desktop\ASSEMBLER\musiclibrary/src/assets/js/script.js?:207:30
   
+  - index.html:186 Object../src/assets/js/script.js
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:186:1
   
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
+  - index.html:21 __webpack_require__
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:21:30
   
-  - Compiler.js:678 
-    [musiclibrary]/[webpack]/lib/Compiler.js:678:31
+  - loader.js:8 eval
+    [index.html?.]/[html-webpack-plugin]/lib/loader.js:8:34
   
+  - index.html:109 Object../node_modules/html-webpack-plugin/lib/loader.js!./src/index.html
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:109:1
   
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
+  - index.html:21 __webpack_require__
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:21:30
   
-  - Compilation.js:1423 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1423:35
+  - index.html:85 
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:85:18
   
+  - index.html:88 
+    C:/Users/alfon/Desktop/ASSEMBLER/musiclibrary/src/index.html:88:10
   
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1414 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1414:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1409 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1409:36
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1405 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1405:32
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1342 Compilation.seal
-    [musiclibrary]/[webpack]/lib/Compilation.js:1342:27
-  
-  - Compiler.js:675 
-    [musiclibrary]/[webpack]/lib/Compiler.js:675:18
-  
-  - Compilation.js:1261 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1261:4
-  
-  
-  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
-    [musiclibrary]/[tapable]/lib/Hook.js:154:20
-  
-  - Compilation.js:1253 Compilation.finish
-    [musiclibrary]/[webpack]/lib/Compilation.js:1253:28
-  
-  - Compiler.js:672 
-    [musiclibrary]/[webpack]/lib/Compiler.js:672:17
-  
-  
-  - Compilation.js:1185 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1185:12
-  
-  - Compilation.js:1097 
-    [musiclibrary]/[webpack]/lib/Compilation.js:1097:9
-  
-</pre><script src="main.js"></script>
+</pre>
