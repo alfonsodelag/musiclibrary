@@ -2,11 +2,6 @@
     border: 1px solid black;
 } */
 
-/* @media only screen and (max-width: 600px) {
-    body {
-      background-color: lightblue;
-    }
-  } */
 
 .navbar {
     background-color: black;
@@ -20,34 +15,38 @@
     width: 100%;
 }
 
-iframe{
+iframe {
     width: 100%;
 }
 
-.artistlink{
+.artistlink {
     width: 100%;
     height: 10px;
 }
 
-.borders{
+.borders {
     border: 1px solid black;
     overflow-wrap: break-word;
 }
 
-#container{
+#container {
     width: 80%;
 }
 
-aside{
+#favorites {
+    width: 50%;
+}
+
+aside {
     width: 15%;
     margin-left: auto;
 }
 
-.songlink{
+.songlink {
     overflow-wrap: break-word;
 }
 
-.audiocontrols{
+.audiocontrols {
     display: block;
     position: relative;
 }
@@ -66,9 +65,26 @@ button.blue:hover {
 }
 
 button.blue:active {
-    box-shadow: inset 0 2px 5px #2370FE;   
+    box-shadow: inset 0 2px 5px #2370FE;
 }
 
 .narrow {
     width: 140px;
+}
+
+.card-styles {
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 5px 10px #888888;
+}
+
+
+@media screen and (max-width: 992px) {
+    .results {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 }

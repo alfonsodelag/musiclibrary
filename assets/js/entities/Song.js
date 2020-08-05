@@ -1,44 +1,44 @@
 class Song {
-    constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, audioSamples, songLink){
-        this.cover= cover;
-        this.songName= songName;
-        this.artistName= artistName;
-        this.albumName= albumName;
-        this.songPrice= songPrice;
-        this.releaseDate= releaseDate;
-        this.songLength= songLength;
-        this.musicalGenre= musicalGenre;
-        this.audioSamples= audioSamples;
-        this.songLink= songLink;
+    constructor(cover, songName, artistName, collectionName, songPrice, releaseDate, songLength, musicalGenre, audioSamples, songLink) {
+        this.cover = cover;
+        this.songName = songName;
+        this.artistName = artistName;
+        this.collectionName = collectionName;
+        this.songPrice = songPrice;
+        this.releaseDate = releaseDate;
+        this.songLength = songLength;
+        this.musicalGenre = musicalGenre;
+        this.audioSamples = audioSamples;
+        this.songLink = songLink;
     }
-    getCover(){
+    getCover() {
         return this.cover;
     }
-    getSongName(){
+    getSongName() {
         return this.songName;
     }
-    getArtistName(){
+    getArtistName() {
         return this.artistName;
     }
-    getAlbumName(){
+    getAlbumName() {
         return this.albumName;
     }
-    getSongPrice(){
+    getSongPrice() {
         return this.songPrice;
     }
-    getReleaseDate(){
+    getReleaseDate() {
         return this.releaseDate;
     }
-    getSongLength(){
+    getSongLength() {
         return this.songLength;
     }
-    getMusicalGenre(){
+    getMusicalGenre() {
         return this.musicalGenre;
     }
-    getAudioSamples(){
+    getAudioSamples() {
         return this.audioSamples;
     }
-    getSongLink(){
+    getSongLink() {
         return this.songLink;
     }
 }

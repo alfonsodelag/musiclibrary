@@ -1,45 +1,49 @@
 
 class Video {
-    constructor(cover, songName, artistName, albumName, songPrice, releaseDate, songLength, musicalGenre, videoSample, videoLink){
-        this.cover= cover;
-        this.songName= songName;
-        this.artistName= artistName;
-        this.albumName= albumName;
-        this.songPrice= songPrice;
-        this.releaseDate= releaseDate;
-        this.songLength= songLength;
-        this.musicalGenre= musicalGenre;
-        this.videoSample= videoSample;
-        this.videoLink= videoLink;
+    constructor(cover, songName, artistName, collectionName, songPrice, releaseDate, songLength, musicalGenre, videoSample, videoLink) {
+        this.cover = cover;
+        this.songName = songName;
+        this.artistName = artistName;
+        this.collectionName = collectionName;
+        this.songPrice = songPrice;
+        this.releaseDate = releaseDate;
+        this.songLength = songLength;
+        this.musicalGenre = musicalGenre;
+        this.videoSample = videoSample;
+        this.videoLink = videoLink;
     }
-    getCover(){
+    getCover() {
         return this.cover;
     }
-    getSongName(){
+    getSongName() {
         return this.songName;
     }
-    getArtistName(){
+    getArtistName() {
         return this.artistName;
     }
-    getAlbumPrice(){
+    getCollectionName() {
+        return this.collectionName;
+    }
+    getAlbumPrice() {
         return this.albumName;
     }
-    getSongPrice(){
+    getSongPrice() {
         return this.songPrice;
     }
-    getreleaseDate(){
+
+    getreleaseDate() {
         return this.releaseDate;
     }
-    getSongLength(){
+    getSongLength() {
         return this.songLength;
     }
-    getmusicalGenre(){
+    getmusicalGenre() {
         return this.musicalGenre;
     }
-    getAudioSamples(){
+    getAudioSamples() {
         return this.audioSamples;
     }
-    getsongLink(){
+    getsongLink() {
         return this.songLink;
     }
 }
