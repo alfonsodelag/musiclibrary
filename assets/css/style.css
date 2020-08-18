@@ -49,6 +49,7 @@ aside {
 .audiocontrols {
     display: block;
     position: relative;
+    width: 95%;
 }
 
 button.blue {
@@ -77,6 +78,7 @@ button.blue:active {
     border-radius: 20px;
     box-shadow: 5px 10px #888888;
 }
+
 
 
 @media screen and (max-width: 992px) {

@@ -1,5 +1,6 @@
 //This is where we are pasting our content
 var content = $('#container');
+var favourites = JSON.parse(localStorage.getItem("Favorites")) || [];
 
 $("#submit").click(function (e) {
     var uri = "https://itunes.apple.com/search?";
@@ -85,6 +86,15 @@ $("#submit").click(function (e) {
 
 var countries = $('#country');  //variable for when using Countries API
 var pasteFavorites = $("#favorites"); //Variable used for storing favorites chosen
+
+for (var j = 0; j < favourites.length; j++) {
+    pasteFavorites.append(
+        `<div id="video-container${j}" class="card mb-5 justify-content-center">
+            <p>${favourites[j]}</p>
+            <button attributes="video-container${j}" class="blue removeVideo">Remove</button>
+        </div>`
+    )
+}
 
 //Using Ajax to get data response results from the countries API
 $.ajax({
@@ -265,13 +275,12 @@ function addVideoToHTML(list) {
 
         //Saving to Local Storage
         $("#" + btnId).click(function () {
-            var videoartistList = [];
-            videoartistList.push(list[i].artistName)
-            localStorage.setItem("Favorites: " + i, videoartistList);
-            var getFavoriteVideoArtist = localStorage.getItem("Favorites: " + i);
+            var artistName = list[i].artistName;
+            favourites.push(artistName)
+            localStorage.setItem("Favorites", JSON.stringify(favourites));
             pasteFavorites.append(
                 `<div id="video-container${i}" class="card mb-5 justify-content-center">
-                    <p>${getFavoriteVideoArtist}</p>
+                    <p>${artistName}</p>
                     <button attributes="video-container${i}" class="blue removeVideo">Remove</button>
                 </div>`
             )
@@ -279,7 +288,7 @@ function addVideoToHTML(list) {
             $(".removeVideo").click(function (e) {
                 var selectedVideo = e.target.attributes[0].nodeValue;
                 $("#" + selectedVideo).remove();
-                localStorage.removeItem("Favorites: " + i);
+                localStorage.removeItem("Favorites");
             })
         });
     }
